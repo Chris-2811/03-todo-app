@@ -13,7 +13,7 @@
   --bg-clr: hsl(0, 0%, 98%);
   --bg-items: #ffff;
   --text-items: hsl(235, 19%, 35%);
-  --text-input: ;
+  --text-input: hsl(236, 9%, 61%);
   --border-clr: hsl(236, 33%, 92%);
   --circle-clr: hsl(233, 11%, 84%);
   --box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
@@ -40,6 +40,7 @@
   --text-items: hsl(236, 33%, 85%);
   --border-clr: hsl(237, 14%, 26%);
   --circle-clr: hsl(237, 14%, 35%);
+  --text-input: hsl(234, 11%, 52%);
 }
 
 *,
@@ -122,6 +123,7 @@ ul {
 
 input {
   background: var(--bg-items);
+  color: var(--text-input);
   width: 100%;
   padding: 1rem 3.25rem;
   border-radius: 5px;
@@ -224,10 +226,10 @@ input:focus {
 }
 
 .nav-mobile {
-  background-color: #fff;
+  background-color: var(--bg-items);
   font-size: 0.875rem;
   padding: 1.125rem;
-  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  box-shadow: var(--box-shadow);
   margin-top: 1rem;
   border-radius: 5px;
 }
@@ -319,5 +321,9 @@ input:focus {
 
   .nav-desktop {
     display: block;
+  }
+
+  input {
+    font-size: 1rem;
   }
 }
