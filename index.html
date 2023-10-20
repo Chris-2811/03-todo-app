@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div class="page-container">
+      <!-- Header -->
+      <header class="header">
+        <div class="page-heading">
+          <h1>Todo</h1>
+          <button
+            id="dark-mode-toggle"
+            class="dark-mode-toggle"
+            aria-label="toggle dark mode"
+          >
+            <img src="/images/icon-moon.svg" alt="moon" />
+          </button>
+        </div>
+      </header>
+      <!-- Main -->
+      <main>
+        <!-- Form -->
+        <form id="form" class="form">
+          <div class="form-control">
+            <input
+              type="text"
+              placeholder="Create a new todo"
+              id="item-input"
+            />
+            <div class="circle"></div>
+          </div>
+        </form>
+
+        <div class="item-list-container">
+          <!-- Item List -->
+          <ul id="item-list" class="item-list"></ul>
+          <div class="item-stats" id="item-stats">
+            <p>
+              <small class="total-items" id="total-items">5</small> items left
+            </p>
+            <nav class="nav-desktop">
+              <ul class="nav-list">
+                <div class="nav-item active all-btn">All</div>
+                <div class="nav-item active-btn">Active</div>
+                <div class="nav-item completed-btn">Completed</div>
+              </ul>
+            </nav>
+            <div class="clear-items" id="clear-items">Clear Completed</div>
+          </div>
+        </div>
+
+        <!-- Navbar -->
+        <nav class="nav-mobile" id="nav-mobile">
+          <ul class="nav-list">
+            <div class="nav-item active all-btn">All</div>
+            <div class="nav-item active-btn">Active</div>
+            <div class="nav-item completed-btn">Completed</div>
+          </ul>
+        </nav>
+
+        <!-- Drag and Drop -->
+        <div class="drag-drop-text">Drag and drop to reorder list</div>
+      </main>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
