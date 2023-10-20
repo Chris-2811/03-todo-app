@@ -79,7 +79,7 @@ function createCircleBtn() {
 // Create delete button
 function createDeleteBtn() {
   const img = document.createElement('img');
-  img.setAttribute('src', 'images/icon-cross.svg');
+  img.setAttribute('src', './images/icon-cross.svg');
   img.classList.add('delete-icon');
 
   return img;
@@ -307,13 +307,13 @@ function init() {
       htmlEl.setAttribute('data-theme', 'dark');
       toggleThemeBtn.firstElementChild.setAttribute(
         'src',
-        '/images/icon-sun.svg'
+        './images/icon-sun.svg'
       );
     } else {
       htmlEl.setAttribute('data-theme', 'light');
       toggleThemeBtn.firstElementChild.setAttribute(
         'src',
-        '/images/icon-moon.svg'
+        './images/icon-moon.svg'
       );
     }
   });
