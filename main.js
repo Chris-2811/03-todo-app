@@ -245,7 +245,7 @@ function clearCompletedItems() {
 
 // Update UI
 function updateUI() {
-  const items = document.querySelectorAll('li');
+  const items = document.querySelectorAll('.item-list li');
   const checkedIcons = document.querySelectorAll('.list-item.checked');
   const itemsLeft = items.length - checkedIcons.length;
 
