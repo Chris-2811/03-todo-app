@@ -290,11 +290,6 @@ input:focus {
     font-size: 3rem;
   }
 
-  .dark-mode-toggle {
-    height: 2rem;
-    width: 2rem;
-  }
-
   .form .form-control input {
     padding: 1.5rem 4.5rem;
   }
