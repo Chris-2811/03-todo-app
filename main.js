@@ -79,7 +79,7 @@ function createCircleBtn() {
 // Create delete button
 function createDeleteBtn() {
   const img = document.createElement('img');
-  img.setAttribute('src', '/images/icon-cross.svg');
+  img.setAttribute('src', 'images/icon-cross.svg');
   img.classList.add('delete-icon');
 
   return img;
