@@ -13,6 +13,7 @@
   --bg-clr: hsl(0, 0%, 98%);
   --bg-items: #ffff;
   --text-items: hsl(235, 19%, 35%);
+  --text-input: ;
   --border-clr: hsl(236, 33%, 92%);
   --circle-clr: hsl(233, 11%, 84%);
   --box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
@@ -73,7 +74,7 @@ ul {
 
 .header::after {
   content: '';
-  background-image: url('/images/bg-mobile-light.jpg');
+  background-image: url('images/bg-mobile-light.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
@@ -85,7 +86,7 @@ ul {
 }
 
 [data-theme='dark'] header::after {
-  background-image: url('/images/bg-mobile-dark.jpg');
+  background-image: url('images/bg-mobile-dark.jpg');
 }
 
 .page-heading {
@@ -95,21 +96,28 @@ ul {
   justify-content: space-between;
   font-size: 2rem;
   z-index: 2;
+  margin-block: 3rem 2.5rem;
 }
 
 .page-heading h1 {
   font-size: 1.25rem;
   text-transform: uppercase;
   letter-spacing: 15px;
-  margin-block: 3rem 2.5rem;
 }
 
 .dark-mode-toggle {
+  background: url('images/icon-moon.svg');
+  background-size: cover;
   border: none;
   background-color: transparent;
   cursor: pointer;
-  height: 2rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.dark-mode-toggle.dark-mode {
+  background: url('images/icon-sun.svg');
+  background-size: cover;
 }
 
 input {
@@ -190,10 +198,14 @@ input:focus {
   cursor: pointer;
 }
 
-.delete-icon {
+.delete-btn {
+  background: url(images/icon-cross.svg);
+  background-size: cover;
+  border: none;
   width: 0.75rem;
   height: 0.75rem;
   cursor: pointer;
+  filter: brightness(150%);
 }
 
 .item-stats {
@@ -270,14 +282,17 @@ input:focus {
     background-image: url('/images/bg-desktop-dark.jpg');
   }
 
-  .page-heading h1 {
-    font-size: 3rem;
+  .page-heading {
     margin-block: 3.9rem 2.4rem;
   }
 
+  .page-heading h1 {
+    font-size: 3rem;
+  }
+
   .dark-mode-toggle {
-    height: 3rem;
-    width: 3rem;
+    height: 2rem;
+    width: 2rem;
   }
 
   .form .form-control input {

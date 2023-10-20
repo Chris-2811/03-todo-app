@@ -78,16 +78,15 @@ function createCircleBtn() {
 
 // Create delete button
 function createDeleteBtn() {
-  const img = document.createElement('img');
-  img.setAttribute('src', 'images/icon-cross.svg');
-  img.classList.add('delete-icon');
+  const button = document.createElement('button');
+  button.classList.add('delete-btn');
 
-  return img;
+  return button;
 }
 
 // Remove item
 function removeItem(e) {
-  if (e.target.classList.contains('delete-icon')) {
+  if (e.target.classList.contains('delete-btn')) {
     e.target.parentElement.remove();
     removeItemFromLocalStorage(
       e.target.parentElement.querySelector('.item-container').textContent
@@ -305,16 +304,10 @@ function init() {
   toggleThemeBtn.addEventListener('click', () => {
     if (htmlEl.getAttribute('data-theme') === 'light') {
       htmlEl.setAttribute('data-theme', 'dark');
-      toggleThemeBtn.firstElementChild.setAttribute(
-        'src',
-        'images/icon-sun.svg'
-      );
+      toggleThemeBtn.classList.add('dark-mode');
     } else {
       htmlEl.setAttribute('data-theme', 'light');
-      toggleThemeBtn.firstElementChild.setAttribute(
-        'src',
-        'images/icon-moon.svg'
-      );
+      toggleThemeBtn.classList.remove('dark-mode');
     }
   });
 
