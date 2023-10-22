@@ -8,9 +8,9 @@ const totalItems = document.getElementById('total-items');
 const clearItemsBtn = document.getElementById('clear-items');
 const itemStats = document.getElementById('item-stats');
 const mobileNav = document.getElementById('nav-mobile');
-const allBtn = document.querySelectorAll('.all-btn');
-const activeBtn = document.querySelectorAll('.active-btn');
-const completedBtn = document.querySelectorAll('.completed-btn');
+const visibleNavList = document.querySelector(
+  '.nav-list:not([style*="display: none"])'
+);
 
 const toggleThemeBtn = document.getElementById('dark-mode-toggle');
 const htmlEl = document.documentElement;
@@ -209,9 +209,6 @@ function filterItems() {
 // Set filter
 function setFilter(e) {
   const target = e.target;
-
-  console.log(target);
-
   const navItems = document.querySelectorAll('.nav-item');
 
   navItems.forEach((item) => {
@@ -219,11 +216,11 @@ function setFilter(e) {
     e.target.classList.add('active');
   });
 
-  if (target.classList.contains('all-btn')) {
+  if (e.target.classList.contains('all-btn')) {
     filter = 'all';
-  } else if (target.classList.contains('active-btn')) {
+  } else if (e.target.classList.contains('active-btn')) {
     filter = 'active';
-  } else if (target.classList.contains('completed-btn')) {
+  } else if (e.target.classList.contains('completed-btn')) {
     filter = 'completed';
   }
 
@@ -237,7 +234,6 @@ function clearCompletedItems() {
   items.forEach((item) => {
     if (item.classList.contains('checked')) {
       item.remove();
-      console.log(item.querySelector('.item-container').textContent);
       clearFromLocalStorage(item.querySelector('.item-container').textContent);
     }
   });
@@ -288,17 +284,7 @@ function init() {
   formEl.addEventListener('submit', addItem);
   itemListEl.addEventListener('click', removeItem);
   itemListEl.addEventListener('click', checkItem);
-
-  activeBtn.forEach((btn) => {
-    btn.addEventListener('click', setFilter);
-  });
-  completedBtn.forEach((btn) => {
-    btn.addEventListener('click', setFilter);
-  });
-  allBtn.forEach((btn) => {
-    btn.addEventListener('click', setFilter);
-  });
-
+  visibleNavList.addEventListener('click', setFilter);
   clearItemsBtn.addEventListener('click', clearCompletedItems);
 
   toggleThemeBtn.addEventListener('click', () => {
