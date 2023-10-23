@@ -260,7 +260,7 @@ input:focus {
   margin-top: 2.5rem;
 }
 
-.nav-desktop {
+.nav-desktop .nav-list {
   display: none;
 }
 
@@ -319,8 +319,8 @@ input:focus {
     display: none !important;
   }
 
-  .nav-desktop {
-    display: block;
+  .nav-desktop .nav-list {
+    display: flex;
   }
 
   input {

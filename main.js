@@ -8,9 +8,12 @@ const totalItems = document.getElementById('total-items');
 const clearItemsBtn = document.getElementById('clear-items');
 const itemStats = document.getElementById('item-stats');
 const mobileNav = document.getElementById('nav-mobile');
+const desktopNav = document.getElementById('nav-desktop');
 const visibleNavList = document.querySelector(
-  '.nav-list:not([style*="display: none"])'
+  '.nav-list:not([style="display:none"])'
 );
+
+console.log(visibleNavList);
 
 const toggleThemeBtn = document.getElementById('dark-mode-toggle');
 const htmlEl = document.documentElement;
@@ -209,7 +212,10 @@ function filterItems() {
 // Set filter
 function setFilter(e) {
   const target = e.target;
+  console.log(target);
   const navItems = document.querySelectorAll('.nav-item');
+
+  console.log(navItems);
 
   navItems.forEach((item) => {
     item.classList.remove('active');
@@ -284,7 +290,8 @@ function init() {
   formEl.addEventListener('submit', addItem);
   itemListEl.addEventListener('click', removeItem);
   itemListEl.addEventListener('click', checkItem);
-  visibleNavList.addEventListener('click', setFilter);
+  desktopNav.addEventListener('click', setFilter);
+  mobileNav.addEventListener('click', setFilter);
   clearItemsBtn.addEventListener('click', clearCompletedItems);
 
   toggleThemeBtn.addEventListener('click', () => {
