@@ -12,8 +12,7 @@ const desktopNav = document.getElementById('nav-desktop');
 const visibleNavList = document.querySelector(
   '.nav-list:not([style="display:none"])'
 );
-
-console.log(visibleNavList);
+const viewport = document.querySelector('meta[name="viewport"]');
 
 const toggleThemeBtn = document.getElementById('dark-mode-toggle');
 const htmlEl = document.documentElement;
@@ -37,6 +36,7 @@ function addItem(e) {
   }
 
   updateUI();
+  viewport.setAttribute('content', 'width=device-width, initial-scale=1');
   inputEl.value = '';
 }
 
@@ -150,8 +150,6 @@ function displayItemsFromLocalStorage() {
 function clearFromLocalStorage(clearItems) {
   let items = getItemsFromLocalStorage();
 
-  console.log(clearItems);
-
   items = items.filter((item) => {
     return !clearItems.includes(item.text);
   });
@@ -212,21 +210,18 @@ function filterItems() {
 // Set filter
 function setFilter(e) {
   const target = e.target;
-  console.log(target);
   const navItems = document.querySelectorAll('.nav-item');
-
-  console.log(navItems);
 
   navItems.forEach((item) => {
     item.classList.remove('active');
-    e.target.classList.add('active');
+    target.classList.add('active');
   });
 
-  if (e.target.classList.contains('all-btn')) {
+  if (target.classList.contains('all-btn')) {
     filter = 'all';
-  } else if (e.target.classList.contains('active-btn')) {
+  } else if (target.classList.contains('active-btn')) {
     filter = 'active';
-  } else if (e.target.classList.contains('completed-btn')) {
+  } else if (target.classList.contains('completed-btn')) {
     filter = 'completed';
   }
 
